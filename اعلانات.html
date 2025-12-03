@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>استوديو الإبداع البصري - طلب إعلان</title>
+<meta name="description" content="استوديو الإبداع البصري - نصنع لك إعلانات محترفة بجودة وسرعة عالية">
+<meta name="keywords" content="إعلانات, تصميم, استوديو, بصري, إنتاج, حملة تسويقية">
+<meta name="robots" content="index, follow">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:sans-serif;background:#0d0f2c;color:#fff;line-height:1.5;padding-bottom:40px;}
+  .container{max-width:980px;margin:18px auto;padding:0 12px;}
+  .hero{padding:18px 12px;text-align:center;border-radius:12px;background:#121640;margin-bottom:12px;}
+  .hero h1{font-size:24px;margin-bottom:6px}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:880px){ .grid{grid-template-columns:1fr 380px} }
+  .card{background:#121640;padding:14px;border-radius:12px;box-shadow:0 6px 18px #0007}
+  label{display:block;margin:8px 0 6px;font-weight:700}
+  input[type="text"], input[type="tel"], input[type="password"], textarea, input[type="number"]{
+    width:100%;padding:10px;border-radius:10px;border:none;background:#242b6a;color:#fff;margin-bottom:8px;
+  }
+  textarea{min-height:90px;resize:vertical}
+  .drop{width:100%;height:120px;border:2px dashed #ff7ab0;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;background:#242b6a44}
+  .btn{width:100%;padding:12px;border-radius:10px;border:none;font-weight:700;background:#ff4dbb;color:#fff;cursor:pointer}
+  .orders-box{background:#23265a;padding:10px;border-radius:10px;margin-bottom:10px;position:relative;border-left:4px solid #ff4dbb}
+  .small-btn{padding:6px 10px;border-radius:8px;border:none;cursor:pointer}
+  .del{background:#ff3b3b;color:#fff}
+  .ok{background:#25b25a;color:#fff}
+  .muted{opacity:.85;font-size:14px}
+  footer{margin-top:18px;padding:18px;text-align:center;border-top:1px solid #1a1f4d;color:#cfcfcf}
+  .settings-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+  .color-input{width:56px;height:36px;padding:0;border-radius:8px;border:none}
+  .meta{font-size:13px;opacity:.9}
+  .pay-info{background:#18203f;padding:10px;border-radius:8px;margin-top:8px;font-size:14px}
+  .tag{display:inline-block;padding:4px 8px;background:#0f1130;border-radius:10px;margin-left:6px;font-size:13px}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero card">
+      <h1>استوديو الإبداع البصري</h1>
+      <p class="muted">صمّم إعلانك الآن — اختر وسيلة الدفع المفضلة ثم أرسل الطلب. (واجهة تجريبية للدفعات)</p>
+      <div class="meta">📞 دعم: <b id="supportNum">078120225</b> — إدارة الطلبات: <b id="adminNum">0786277606</b> — ⚡ كفالة: <b id="warranty">نعم</b></div>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT : نموذج الطلب -->
+      <div>
+        <div class="card">
+          <h3 style="margin-bottom:8px">قدم طلبك الآن</h3>
+
+          <label>اسمك</label>
+          <input id="name" type="text" placeholder="الاسم الكامل">
+
+          <label>الوصف المطلوب</label>
+          <textarea id="desc" placeholder="وصف الإعلان أو الفكرة"></textarea>
+
+          <label>رقم الهاتف</label>
+          <input id="phone" type="tel" placeholder="07XXXXXXXX">
+
+          <label>إرفاق صورة أو فيديو (اختياري)</label>
+          <div id="dropArea" class="drop"><span style="font-size:28px">＋</span><div class="muted">اضغط أو اسحب ملف هنا</div></div>
+          <input id="media" type="file" accept="image/*,video/*" style="display:none">
+
+          <hr style="margin:12px 0;border:none;border-top:1px solid #1a1f4d">
+
+          <label>اختر طريقة الدفع</label>
+          <div>
+            <label><input type="radio" name="pay" value="card" checked> فيزا / بطاقة</label>
+            <label><input type="radio" name="pay" value="uwallet"> يو واليت (UWallet)</label>
+            <label><input type="radio" name="pay" value="islamic_card"> فيزا البنك الإسلامي (تحويل بنكي/تعليمات)</label>
+          </div>
+
+          <!-- تفاصيل الدفع الديناميكية -->
+          <div id="paymentDetails" class="pay-info">
+            <!-- بطاقة -->
+            <div id="cardForm">
+              <label>اسم حامل البطاقة</label>
+              <input id="cardName" type="text" placeholder="كما هو على البطاقة">
+              <label>رقم البطاقة (نماذج فقط)</label>
+              <input id="cardNumber" type="text" placeholder="xxxx xxxx xxxx xxxx">
+              <div style="display:flex;gap:8px;">
+                <input id="cardExp" type="text" placeholder="MM/YY" style="flex:1">
+                <input id="cardCvv" type="text" placeholder="CVV" style="width:120px">
+              </div>
+              <div class="muted" style="margin-top:6px">ملاحظة: هذه حقول للمظهر فقط — لبدء دفعات حقيقية تحتاج بوابة دفع وخادم آمن.</div>
+            </div>
+
+            <!-- UWallet -->
+            <div id="uwalletForm" style="display:none">
+              <label>معرف المحفظة / رقم اليو واليت</label>
+              <input id="uwalletId" type="text" placeholder="مثال: UW-123456">
+              <div class="muted">ستحول قيمة الدفع إلى محفظتنا، ثم اضغط على "إرسال الطلب" وأرسل إثبات التحويل إلى رقم الدعم.</div>
+            </div>
+
+            <!-- البنك الإسلامي -->
+            <div id="islamicForm" style="display:none">
+              <label>تعليمات تحويل فيزا البنك الإسلامي</label>
+              <div class="muted">1) قم بإجراء تحويل بنكي/بطاقة إلى حسابنا لدى البنك الإسلامي.<br>2) أرسل إيصال التحويل (صورة) مع الطلب أو إلى رقم الإدارة.<br>3) بعد التحقق نؤكد الدفع ونبدأ التنفيذ.</div>
+              <div style="margin-top:8px"><b>اسم الحساب:</b> استوديو الإبداع البصري <br><b>البنك:</b> البنك الإسلامي (مثال)</div>
+            </div>
+          </div>
+
+          <button class="btn" onclick="sendOrder()">إرسال الطلب ودفع جزئي/تأكيد</button>
+        </div>
+
+        <!-- معلومات إضافية / سياسة -->
+        <div style="margin-top:12px" class="card">
+          <h4>طريقة العمل على الدفعات</h4>
+          <p class="muted">يمكن قبول دفعة جزئية أو دفع كامل قبل البدء. لإتمام دفعات حقيقية اربط بوابة دفع آمنة على الخادم أو استخدم بوابة بنكية محلية. هنا نقدم واجهة لتجربة الإدارة وتسجيل حالة الدفع.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT : الإدارة والإعدادات -->
+      <div>
+        <div class="card">
+          <h3>تسجيل دخول المسؤول</h3>
+          <input id="pass" type="password" placeholder="كلمة السر">
+          <button class="btn" onclick="login()">دخول</button>
+
+          <div id="adminPanel" style="display:none;margin-top:12px">
+            <h4>الطلبات المستلمة <span class="tag" id="ordersCount">0</span></h4>
+            <div id="ordersList" style="max-height:360px;overflow:auto;margin-top:8px"></div>
+
+            <hr style="margin:12px 0;border:none;border-top:1px solid #1a1f4d">
+
+            <h4>إعدادات الموقع</h4>
+            <div class="settings-row">
+              <label>خلفية</label>
+              <input id="bgColor" class="color-input" type="color">
+              <label>نص</label>
+              <input id="textColor" class="color-input" type="color">
+              <label>أزرار</label>
+              <input id="btnColor" class="color-input" type="color">
+            </div>
+
+            <div class="settings-row">
+              <label>رقم الدعم:</label>
+              <input id="supportInput" type="text" placeholder="078120225" style="flex:1">
+            </div>
+            <div class="settings-row">
+              <label>رقم الإدارة:</label>
+              <input id="adminInput" type="text" placeholder="0786277606" style="flex:1">
+            </div>
+            <div class="settings-row">
+              <label>الكفالة (نص):</label>
+              <input id="warrantyInput" type="text" placeholder="مثال: نعم" style="flex:1">
+            </div>
+
+            <button class="btn" style="margin-top:8px" onclick="saveSettings()">حفظ الإعدادات</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div id="footerInfo">© جميع الحقوق محفوظة</div>
+    </footer>
+  </div>
+
+<script>
+/* ========== تعامل السحب والملفات ========== */
+const drop = document.getElementById('dropArea');
+const mediaInput = document.getElementById('media');
+drop.onclick = ()=> mediaInput.click();
+drop.ondragover = e=>{ e.preventDefault(); drop.style.background="#242b6acc"; };
+drop.ondragleave = ()=> drop.style.background="#242b6a44";
+drop.ondrop = e=>{ e.preventDefault(); drop.style.background="#242b6a44"; mediaInput.files = e.dataTransfer.files; };
+
+/* ========== تحميل البيانات المحفوظة ========== */
+let orders = JSON.parse(localStorage.getItem('orders')) || [];
+let settings = JSON.parse(localStorage.getItem('siteSettings')) || {
+  bg: '#0d0f2c', text: '#ffffff', btn: '#ff4dbb',
+  support: '078120225', admin: '0786277606', warranty: 'نعم'
+};
+
+/* تطبيق الإعدادات (ألوان، أرقام...) */
+function applySettings(){
+  document.body.style.background = settings.bg;
+  document.body.style.color = settings.text;
+  document.querySelectorAll('.btn').forEach(b=> b.style.background = settings.btn);
+  document.getElementById('supportNum').textContent = settings.support;
+  document.getElementById('adminNum').textContent = settings.admin;
+  document.getElementById('warranty').textContent = settings.warranty;
+  document.getElementById('footerInfo').textContent = `الدعم: ${settings.support} — إدارة: ${settings.admin} — كفالة: ${settings.warranty}`;
+}
+applySettings();
+
+/* ===================== عرض/اختيار طرق الدفع ديناميكياً ===================== */
+const payRadios = document.getElementsByName('pay');
+function updatePaymentUI(){
+  const val = Array.from(payRadios).find(r=>r.checked).value;
+  document.getElementById('cardForm').style.display = (val==='card')?'block':'none';
+  document.getElementById('uwalletForm').style.display = (val==='uwallet')?'block':'none';
+  document.getElementById('islamicForm').style.display = (val==='islamic_card')?'block':'none';
+}
+Array.from(payRadios).forEach(r=> r.addEventListener('change', updatePaymentUI));
+updatePaymentUI();
+
+/* ===================== إرسال الطلب ===================== */
+function renumberOrders(){
+  orders.forEach((o,i)=> o.number = i+1);
+  localStorage.setItem('orders', JSON.stringify(orders));
+}
+
+function sendOrder(){
+  const name = document.getElementById('name').value.trim();
+  const desc = document.getElementById('desc').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if(!name || !desc || !phone){ alert('الرجاء تعبئة الحقول الأساسية'); return; }
+
+  const payMethod = Array.from(payRadios).find(r=>r.checked).value;
+  let payment = {method: payMethod, info: null, paid:false, paidAt:null};
+
+  if(payMethod === 'card'){
+    // نجمع معلومات مظهرية فقط
+    payment.info = {
+      cardName: document.getElementById('cardName').value || '',
+      cardNumber: document.getElementById('cardNumber').value || '',
+      exp: document.getElementById('cardExp').value || ''
+    };
+  } else if(payMethod === 'uwallet'){
+    payment.info = {uwalletId: document.getElementById('uwalletId').value || ''};
+  } else if(payMethod === 'islamic_card'){
+    payment.info = {note: 'تحويل إلى حساب البنك الإسلامي - أرسل الإيصال.'};
+  }
+
+  const media = mediaInput.files[0] ? mediaInput.files[0].name : 'لم يتم الإرفاق';
+  const order = {
+    number: orders.length + 1,
+    name, desc, phone, media,
+    payment
+  };
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
+
+  alert(`تم إنشاء الطلب رقم ${order.number}. حالة الدفع: ${payment.paid ? 'مدفوع' : 'غير مدفوع'}`);
+  // مسح الحقول
+  document.getElementById('name').value='';
+  document.getElementById('desc').value='';
+  document.getElementById('phone').value='';
+  mediaInput.value='';
+  document.getElementById('cardName').value='';
+  document.getElementById('cardNumber').value='';
+  document.getElementById('cardExp').value='';
+  document.getElementById('cardCvv').value='';
+  document.getElementById('uwalletId').value='';
+
+  // لو المسؤول مسجل دخوله، حدث القائمة فوراً
+  if(document.getElementById('adminPanel').style.display === 'block') loadOrders();
+}
+
+/* ===================== إدارة: تسجيل الدخول، عرض الطلبات، حذف، تعليم مدفوع ===================== */
+function login(){
+  const p = document.getElementById('pass').value;
+  if(p === '2009'){
+    document.getElementById('adminPanel').style.display = 'block';
+    document.getElementById('pass').value='';
+    loadOrders();
+    // حط القيم في inputs
+    document.getElementById('bgColor').value = settings.bg;
+    document.getElementById('textColor').value = settings.text;
+    document.getElementById('btnColor').value = settings.btn;
+    document.getElementById('supportInput').value = settings.support;
+    document.getElementById('adminInput').value = settings.admin;
+    document.getElementById('warrantyInput').value = settings.warranty;
+  } else {
+    alert('كلمة السر غير صحيحة');
+  }
+}
+
+function loadOrders(){
+  const box = document.getElementById('ordersList');
+  box.innerHTML = '';
+  orders.forEach((o, idx)=>{
+    const div = document.createElement('div');
+    div.className = 'orders-box';
+    div.innerHTML = `<div style="font-weight:700;margin-bottom:6px">#${o.number} — ${o.name}
+      <span style="float:left"><small class="muted">${o.payment.paid ? '✅ مدفوع' : '❌ غير مدفوع'}</small></span></div>
+      <div><b>الوصف:</b> ${o.desc}</div>
+      <div><b>الهاتف:</b> ${o.phone}</div>
+      <div><b>الملف:</b> ${o.media}</div>
+      <div style="margin-top:6px"><b>طريقة الدفع:</b> ${o.payment.method}</div>
+      <div style="margin-top:6px;font-size:13px;color:#ddd"><b>معلومات الدفع:</b> ${formatPaymentInfo(o.payment.info)}</div>
+    `;
+    // زر تحديد مدفوع
+    const payBtn = document.createElement('button');
+    payBtn.className = 'small-btn ok';
+    payBtn.textContent = o.payment.paid ? 'مُدفع' : 'وضع علامة مدفوع';
+    payBtn.style.marginRight = '8px';
+    payBtn.onclick = ()=>{
+      if(!o.payment.paid){
+        if(confirm('وضع علامة أن هذا الطلب تم دفعه؟')){
+          o.payment.paid = true;
+          o.payment.paidAt = new Date().toISOString();
+          localStorage.setItem('orders', JSON.stringify(orders));
+          loadOrders();
+        }
+      }
+    };
+    // زر حذف
+    const delBtn = document.createElement('button');
+    delBtn.className = 'small-btn del';
+    delBtn.textContent = 'حذف';
+    delBtn.onclick = ()=>{
+      if(confirm('هل أنت متأكد من حذف الطلب؟')){
+        orders.splice(idx,1);
+        renumberOrders();
+        localStorage.setItem('orders', JSON.stringify(orders));
+        loadOrders();
+      }
+    };
+    div.appendChild(payBtn);
+    div.appendChild(delBtn);
+    box.appendChild(div);
+  });
+  document.getElementById('ordersCount').textContent = orders.length;
+}
+
+function formatPaymentInfo(info){
+  if(!info) return '-';
+  if(info.cardNumber) return `حامل البطاقة: ${info.cardName} — رقم: ${maskCard(info.cardNumber)} — إنتهى: ${info.exp || '-'}`;
+  if(info.uwalletId) return `UWallet ID: ${info.uwalletId}`;
+  if(info.note) return info.note;
+  return JSON.stringify(info);
+}
+function maskCard(num){
+  const s = String(num).replace(/\s+/g,'');
+  if(s.length<=4) return s;
+  return '**** **** **** ' + s.slice(-4);
+}
+
+/* ===================== إعدادات الحفظ ===================== */
+function saveSettings(){
+  settings.bg = document.getElementById('bgColor').value;
+  settings.text = document.getElementById('textColor').value;
+  settings.btn = document.getElementById('btnColor').value;
+  settings.support = document.getElementById('supportInput').value || settings.support;
+  settings.admin = document.getElementById('adminInput').value || settings.admin;
+  settings.warranty = document.getElementById('warrantyInput').value || settings.warranty;
+  localStorage.setItem('siteSettings', JSON.stringify(settings));
+  applySettings();
+  alert('تم حفظ الإعدادات وتطبيقها');
+}
+
+/* ===================== تحميل المبدئي ===================== */
+(function init(){
+  // حفظ الإعدادات الافتراضية لو لم تكن موجودة
+  if(!localStorage.getItem('siteSettings')) localStorage.setItem('siteSettings', JSON.stringify(settings));
+  orders = JSON.parse(localStorage.getItem('orders')) || [];
+  applySettings();
+  // لو المسؤول مفتوح سابقاً (لا نفعل تسجيل دخول تلقائي لأمان)
+  document.getElementById('ordersCount').textContent = orders.length;
+})();
+</script>
+</body>
+</html>
+
+
+
+
